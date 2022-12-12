@@ -3,7 +3,6 @@
 
 import glob
 from osgeo import gdal
-import numpy as np
 import sys
 
 def main(dirpath, contpathfile, proj = "EPSG:4326", oubound = (-20, 20, 60, 60), res = 0.041666666666667):  # WORK on implementing the arguments
