@@ -9,4 +9,6 @@ Use the script, from bash commandline as ```clim.py ./1981_2010/ ./sources/conti
 
 This will crop specified area, resample resolution as 2.5 arc minutes, crop the area as (-20, 20, 60, 60) and reproject the rasters for EPSG:4326.
 
+Resulting rasters are ready to use in maxent, and are named accordingly.
+
 Updates to modify these predetermined variables are coming soon...
