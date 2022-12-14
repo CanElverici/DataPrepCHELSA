@@ -4,6 +4,7 @@
 import glob
 from osgeo import gdal
 import sys
+import os
 
 # If sys.argv[3,4 and 5] are not defined, the script will run with the default values
 # If sys.argv[3,4 and 5] are defined, the script will run with the values defined by the user
@@ -13,7 +14,7 @@ def main(dirpath, contpathfile, proj = "EPSG:4326", oubound = (-20, 20, 60, 60),
     # Define all the files in the folder as a list named tifs
     pathini = sys.argv[1]
     continents = sys.argv[2]
-    tifs = glob.glob(pathini + "*.tif")                        
+    tifs = glob.glob(os.path.join(pathini, "*.tif"))                        
     print(tifs)
 
     # For loop to reproject, crop and rename appropriate to maxent for all the files in the list
@@ -41,10 +42,10 @@ def main(dirpath, contpathfile, proj = "EPSG:4326", oubound = (-20, 20, 60, 60),
         # Define the output resolution for x and y
         # For this, output resolution is equal to 2.5 arc minutes as default
         # The resolution can be changed by the user in the input arguments
-        if len(sys.argv) > 5:
+        if len(sys.argv) >= 5:
             res = float(sys.argv[5])
         else:
-            res = 0.041666666666667
+            res = float(0.041666666666667)
         resx = res
         resy = -1 * res
         # Reproject and resample the file
@@ -90,4 +91,4 @@ def main(dirpath, contpathfile, proj = "EPSG:4326", oubound = (-20, 20, 60, 60),
         gdal.Rename(outfile, newname)
 
 
-main(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
+main(*sys.argv[1:])
