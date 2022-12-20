@@ -7,7 +7,7 @@ from shapely.geometry import shape, mapping, Point, Polygon
 from shapely.ops import unary_union
 from sys import argv as sa
 
-# Define a function to create a buffer around coordinates from a csv file
+# Code to create a buffer around coordinates from a csv file
 # and create an minimum convex polygon from that buffer
 # 1 degree is approximately 111 km, so if you want 100 km buffer, you should use 0.9 degrees
 # We are following KUENM's format, so csv file should have 3 columns and ordered like: species, longitude and latitude
