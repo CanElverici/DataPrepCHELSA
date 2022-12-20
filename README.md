@@ -56,3 +56,26 @@ Only modifiable setting is buffer distance. Here is the example code:
 * Second argument (0.9) defines the buffer distance in degrees. The default value is 0.9 which is 100kms.
 * Third argument ("test_mcp/mcp.shp") defines the output file.
 
+### m_area.py
+
+This script will crop rasters according to the shapefile which is created from m_shp.py.
+
+#### Before Usage
+
+1. Specify the path to your shapefile which will be used as a template for cropping.
+2. Specify the path to your m_area rasters. 
+
+#### How to Use
+
+Use the script, from bash commandline as ```python3 m_area.py test_mcp/mcp.shp test_marea/```
+
+This will crop your rasters by using mcp.shp as a template. M_area rasters could be the resulting rasters from clim.py.
+
+#### Modifiable Settings
+
+There is no modifiable setting here. The code is:
+
+```python3 m_area.py test_mcp/mcp.shp test_marea/```
+
+* First argument (test_mcp/mcp.shp) defines the path to shapefile which will be used as the template to crop the rasters.
+* Second argument ("test_marea/") defines the path to rasters which will be cropped. The script will create ```cropped/``` directory in this directory and it includes all the cropped files.
