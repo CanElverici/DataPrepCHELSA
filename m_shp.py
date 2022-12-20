@@ -7,9 +7,6 @@ from shapely.geometry import shape, mapping, Point, Polygon
 from shapely.ops import unary_union
 from sys import argv as sa
 
-# To remove the warning message
-#warnings.simplefilter('ignore', ShapelyDeprecationWarning)
-
 # Define a function to create a buffer around coordinates from a csv file
 # and create an minimum convex polygon from that buffer
 # 1 degree is approximately 111 km, so if you want 100 km buffer, you should use 0.9 degrees
