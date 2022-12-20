@@ -11,7 +11,7 @@
 
 #### How to Use
 
-Use the script, from bash commandline as ```clim.py ./1981_2010/ ./sources/continents_aoi.shp```
+Use the script, from bash commandline as ```python3 clim.py ./1981_2010/ ./sources/continents_aoi.shp```
 
 This will crop specified area, resample resolution as 2.5 arc minutes, crop the area as (-20, 20, 60, 60) and reproject the rasters for EPSG:4326.
 
@@ -28,3 +28,31 @@ Modifiable settings are resolution, cropping area and projection setting. Here i
 * Third argument ("EPSG:4326") defines the projection.
 * Fourth argument ("-20, 20, 60, 60") defines the crop area in the order of (minX, minY, maxX, maxY). Be careful because some tools use it in different order.
 * Fifth argument (0.041666666666667) defines the resolution of the data. Here 0.041666666666667 is equal to 2.5 arc minutes.
+
+### m_shp.py
+
+This script will create a minimum convex polygon with a desired buffer distance.
+
+#### Before Usage
+
+(You will need to install fiona and shapely packages for python3 to use this script.)
+1. Specify the path to your species.csv file. We are following KUENM's format, so csv file should have 3 columns and ordered like: species, longitude and latitude.
+2. Specify the buffer distance in degrees.
+3. Specify the name of the output file. If not, the file will be named as mcp.shp.
+
+#### How to Use
+
+Use the script, from bash commandline as ```python3 m_shp.py test_mcp/Hmarginatum_joint.csv 0.9 test_mcp/mcp.shp```
+
+This will crop create a buffer area of 0.9 degrees which is approximately 100kms around your species.csv file and create a minimum convex polygon accordingly.
+
+#### Modifiable Settings
+
+Only modifiable setting is buffer distance. Here is the example code:
+
+```python3 m_shp.py test_mcp/Hmarginatum_joint.csv 0.9 test_mcp/mcp.shp```
+
+* First argument (test_mcp/Hmarginatum_joint.csv) defines the species coordinates csv file.
+* Second argument (0.9) defines the buffer distance in degrees. The default value is 0.9 which is 100kms.
+* Third argument ("test_mcp/mcp.shp") defines the output file.
+
