@@ -2,12 +2,14 @@
 
 ## Python script to Manipulate CHELSA data for using in ENMs
 
-### Before Usage
+### clim.py
+
+#### Before Usage
 
 1. Create a directory including the climatic data (i.e. CHELSA_bio1_1981-2010_V.2.1.tif, CHELSA_bio2_1981-2010_V.2.1.tif, ...) and note its path. Please do not combine datasets of different bioclimatic scenarios in this directory. Each scenario should be in different directory and each time you should run clim.py seperately.
 2. Specify the path for your shapefile, which you will use as a template to remove non-continental areas.
 
-### How to Use
+#### How to Use
 
 Use the script, from bash commandline as ```clim.py ./1981_2010/ ./sources/continents_aoi.shp```
 
@@ -15,7 +17,7 @@ This will crop specified area, resample resolution as 2.5 arc minutes, crop the 
 
 Resulting rasters are ready to use in maxent, and are named accordingly.
 
-### Modifiable Settings
+#### Modifiable Settings
 
 Modifiable settings are resolution, cropping area and projection setting. Here is the example code:
 
