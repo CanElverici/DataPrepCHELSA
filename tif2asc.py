@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import os
-import glob
-import sys
+import os, glob, sys
 from osgeo import gdal, osr
 
+# Function to convert all TIFF rasters in a directory to ASCII and create WGS84 definition files in the same directory.
+# The function takes the input directory as an argument.
+# The function iterates over all subdirectories in the input directory. SO, IT IS NOT NECESSARY TO CALL THE FUNCTION FOR EACH SUBDIRECTORY.
 def tif2asc(input_dir):
     # Find all TIFF files in the input directory
     tif_files = glob.glob(os.path.join(input_dir, "*.tif"))
+
+    # Print tif_files
+    print(tif_files)
 
     # Iterate over each TIFF file
     for tif_file in tif_files:
@@ -31,14 +35,7 @@ def tif2asc(input_dir):
         src_ds = None
 
         # Delete the original TIFF file and rename the ASCII file to have the same name as the TIFF file DISABLED FOR TESTING
-        #os.remove(tif_file)
-        tif_basename = os.path.splitext(os.path.basename(tif_file))[0]
-        #os.rename(output_file, os.path.join(output_dir, f"{tif_basename}.asc"))
-
-        # Delete the auxiliary XML files
-        xml_files = glob.glob(os.path.join(output_dir, f"{tif_basename}*.xml"))
-        for xml_file in xml_files:
-            os.remove(xml_file)
+        os.remove(tif_file)
 
 def main():
     # Set the input directory
@@ -52,5 +49,5 @@ def main():
 if __name__ == "__main__":
     main()
 
-# ALERT! THERE IS A PROBLEM. VALUES IN THE ASCII FILES ARE NOT CORRECT. THEY ARE NOT THE SAME AS THE ORIGINAL TIFF FILES. I DON'T KNOW WHY.
+# IF you remove xml files, ascii files are misread. If you don't remove them, ascii files are correct. You shouldn't remove them.
 
