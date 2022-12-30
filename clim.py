@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import glob
+import glob, sys, os
 from osgeo import gdal
-import sys
-import os
 
 # If sys.argv[3,4 and 5] are not defined, the script will run with the default values
 # If sys.argv[3,4 and 5] are defined, the script will run with the values defined by the user
@@ -90,5 +88,10 @@ def main(dirpath, contpathfile, proj = "EPSG:4326", oubound = (-20, 20, 60, 60),
         print(newname)
         gdal.Rename(outfile, newname)
 
+    # Remove the input and the intermediate files
+    # Files beginning with "CHELSA" are to be removed
+    dst_delete = glob.glob(pathini + "CHELSA_*")
+    for file in dst_delete:
+        os.remove(file)
 
 main(*sys.argv[1:])
