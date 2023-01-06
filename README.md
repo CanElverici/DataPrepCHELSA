@@ -77,3 +77,25 @@ There is no modifiable setting here. The code is:
 
 * First argument (test_mcp/mcp.shp) defines the path to shapefile which will be used as the template to crop the rasters.
 * Second argument ("test_marea/") defines the path to rasters which will be cropped. The script will create ```cropped/``` directory in this directory and it includes all the cropped files.
+
+## tif2asc.py
+
+This script will convert TIFF rasters to ASCII rasters.
+
+### Before Usage
+
+1. Specify the path to your TIFF files. You can also add as many directories in that path. Script will convert contents of each directory in there. 
+
+### How to Use
+
+Use the script, from bash commandline as ```python3 m_area.py test```
+
+This will convert every TIFF file in the directory, including the ones in different directories in that path.
+
+### Modifiable Settings
+
+There is no modifiable setting here. The code is:
+
+```python3 tif2asc.py test```
+
+* First argument (test_mcp/mcp.shp) defines the path to TIFF files or directories in there which include these files. 
