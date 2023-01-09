@@ -13,7 +13,7 @@ Use the script, from bash commandline as ```python3 clim.py ./1981_2010/ ./sourc
 
 This will crop specified area, resample resolution as 2.5 arc minutes, crop the area as (-20, 20, 60, 60) and reproject the rasters for EPSG:4326.
 
-Resulting rasters are ready to use in maxent, and are named accordingly.
+Resulting rasters are ready to use in maxent (After converting them to ASCII), and are named accordingly. Also, original rasters are deleted. If you need them for future use, save them in another directory.
 
 ### Modifiable Settings
 
