@@ -116,6 +116,9 @@ This script will create directories in a structure compatible with KUENM R packa
 | 0.7 | bio13 | bio2  | bio4  | bio6 | gst  |      |      |      |      |     |     |     |
 | 0.6 | bio13 | bio2  | bio4  | gst  |      |      |      |      |      |     |     |     |
 
+* Your initial directory should be like this:
+![Screenshot from 2023-01-10 15-26-08](https://user-images.githubusercontent.com/16852642/211666703-d6874c86-24f4-4941-a453-54ada5993a76.png)
+
 ### How to Use
 
 Use the script, from bash commandline as ```python3 sets.py```
