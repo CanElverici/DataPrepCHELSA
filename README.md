@@ -102,11 +102,11 @@ There is no modifiable setting here. The code is:
 
 ## sets.py
 
-This script will create directories in a structure compatible with KUENM R package. 
+This script will create G_variables directory in a structure compatible with KUENM R package. 
 
 ### Before Usage
 
-1. Prepare all of your data (clip, convert, select), which is ready to use in Maxent. Put all of your G variables in a single directory.
+1. Prepare all of your data (clip, convert, select), which is ready to use in Maxent. Put all of your G variables (as directories) in a single directory.
 2. Categorize variable sets. You can categorize them according to species needs or correlation thresholds. In this example they were categorized according to correlation thresholds and a .csv file was created. That file should be in the following format and named as sets.csv (You should not add the header. It is added for explanatory purposes):
 
 | set | var 1 | var 2 | var 3 |var 4 | var 5| var 6| var 7| var 8| var 9|var 10|var 11|var 12|
@@ -128,3 +128,22 @@ This will create a G_variables directory and structure them to use for KUENM, ac
 ### Modifiable Settings
 
 There are no modifieble settings. You can only set different csv tables. You should not pass any arguments in the commandline, like the previous scripts.
+
+## sets_M.py
+
+This script will create M_variables directory in a structure compatible with KUENM R package. 
+
+### Before Usage
+
+1. Prepare all of your data (clip, convert, select), which is ready to use in Maxent. Put all of your M variables (as files) in a single directory.
+2. Put the same sets.csv, that you have created for sets.py.
+
+### How to Use
+
+Use the script, from bash commandline as ```python3 sets_M.py```
+
+This will create a M_variables directory and structure them to use for KUENM, accordingly.
+
+### Modifiable Settings
+
+There are no modifiable settings.
