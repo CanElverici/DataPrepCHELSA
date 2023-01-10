@@ -99,3 +99,29 @@ There is no modifiable setting here. The code is:
 ```python3 tif2asc.py test```
 
 * First argument (test_mcp/mcp.shp) defines the path to TIFF files or directories in there which include these files. 
+
+## sets.py
+
+This script will create directories in a structure compatible with KUENM R package. 
+
+### Before Usage
+
+1. Prepare all of your data (clip, convert, select), which is ready to use in Maxent. Put all of your G variables in a single directory.
+2. Categorize variable sets. You can categorize them according to species needs or correlation thresholds. In this example they were categorized according to correlation thresholds and a .csv file was created. That file should be in the following format and named as sets.csv (You should not add the header. It is added for explanatory purposes):
+
+| set | var 1 | var 2 | var 3 |var 4 | var 5| var 6| var 7| var 8| var 9|var 10|var 11|var 12|
+|:---:| :---: | :---: | :---: |:---: | :---:| :---:| :---:| :---:| :---:|:---:|:---:|:---:|
+| 0.9 | bio13 | bio14 | bio15 | bio2 | bio3 | bio4 | bio6 | bio7 | gdd0 | gsp | gst | npp |
+| 0.8 | bio13 | bio14 | bio15 | bio2 | bio4 | bio6 | gst  |      |      |     |     |     |
+| 0.7 | bio13 | bio2  | bio4  | bio6 | gst  |      |      |      |      |     |     |     |
+| 0.6 | bio13 | bio2  | bio4  | gst  |      |      |      |      |      |     |     |     |
+
+### How to Use
+
+Use the script, from bash commandline as ```python3 sets.py```
+
+This will create a G_variables directory and structure them to use for KUENM, accordingly.
+
+### Modifiable Settings
+
+There are no modifieble settings. You can only set different csv tables. You should not pass any arguments in the commandline, like the previous scripts.
