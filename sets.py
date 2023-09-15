@@ -1,6 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
 import os
 import shutil
 import csv
@@ -11,9 +8,10 @@ def get_files_to_copy(filenames, subdir):
     files_to_copy = []
     for filename in os.listdir(subdir):
         # Check if the file is in the list of filenames to copy
-        for f in filenames:
-            if f in filename:
-                files_to_copy.append(filename)
+        base, _ = os.path.splitext(filename)
+        base = base.split('.')[0]  # consider only the first part of the base name in case of multiple extensions like 'bio1.asc.aux'
+        if base in filenames:
+            files_to_copy.append(filename)
     return files_to_copy
 
 # Create the G_variables directory
