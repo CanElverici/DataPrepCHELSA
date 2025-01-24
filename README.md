@@ -88,7 +88,7 @@ This script will convert TIFF rasters to ASCII rasters.
 
 ### How to Use
 
-Use the script, from bash commandline as ```python3 m_area.py test```
+Use the script, from bash commandline as ```python3 tif2asc.py test```
 
 This will convert every TIFF file in the directory, including the ones in different directories in that path.
 
